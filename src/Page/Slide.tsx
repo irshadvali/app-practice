@@ -26,7 +26,10 @@ const Slide: React.FC = () => {
         </span>
         {/* Panel content goes here */}
         <h2>Panel Content</h2>
+       
+        <div className="test">
         <p>This is the content of the panel.</p>
+        </div>
       </div>
     </div>
   );
