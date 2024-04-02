@@ -7,9 +7,9 @@ import FullScreen from './Page/FullScreen';
 function App() {
   return (
     <div className="App">
-      <Slide></Slide>
-      {/* <Popup></Popup>
-      <FullScreen></FullScreen> */}
+      {/* <Slide></Slide> */}
+      {/* <Popup></Popup>*/}
+      <FullScreen></FullScreen> 
     </div>
   );
 }
