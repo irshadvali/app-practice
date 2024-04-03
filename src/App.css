@@ -43,3 +43,34 @@
     transform: rotate(360deg);
   }
 }
+
+
+panel-container {
+  position: relative;
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  /* transform: translateX(100%);  */
+  overflow-x: hidden;
+}
+
+.panel.active {
+  /* transform: translateX(0%);  */
+  right: 0;
+}
+.cancel-icon {
+  cursor: pointer;
+}
+
+.popup-container .panel.active {
+  width: 100%;
+  right: 0;
+}
