@@ -5,12 +5,13 @@ import Slide from './Page/Slide';
 import Popup from './Page/Popup';
 import FullScreen from './Page/FullScreen';
 import NewApp from './Page/NewApp';
+import TargetingPage from './Page/TargetingPage';
 function App() {
   return (
     <div className="App">
       {/* <Slide></Slide> */}
       {/* <Popup></Popup>*/}
-      <NewApp></NewApp> 
+      <TargetingPage></TargetingPage> 
     </div>
   );
 }
