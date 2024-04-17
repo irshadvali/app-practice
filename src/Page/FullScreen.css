@@ -7,3 +7,12 @@
     z-index: 1000;
     background-color: white;
   }
+
+  .react-datepicker {
+    font-size: 15px;
+  }
+  .react-datepicker__day-name {
+    color: #d00000;
+    font-size: 20spx;
+  }
+  
