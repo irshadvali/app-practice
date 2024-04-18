@@ -6,13 +6,13 @@ import Popup from './Page/Popup';
 import FullScreen from './Page/FullScreen';
 import NewApp from './Page/NewApp';
 import TargetingPage from './Page/TargetingPage';
-import DateRangePicker from './Page/DateRangePicker';
+import Demo from './Page/Demo';
 function App() {
   return (
     <div className="App">
       {/* <Slide></Slide> */}
       {/* <Popup></Popup>*/}
-      <DateRangePicker></DateRangePicker> 
+      <Demo></Demo> 
     </div>
   );
 }
