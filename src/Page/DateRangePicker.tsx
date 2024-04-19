@@ -40,10 +40,10 @@ const DateRangePicker = forwardRef<any, DateRangePickerProps>(({ onStartDateChan
   }, []);
 
   const formatDate = (date: Date | null): string => {
-    return date ? date.toLocaleDateString('en-GB') : '';
+    return date ? date.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }) : '';
   };
 
-  const selectedDates = startDate && endDate ? `${formatDate(startDate)} - ${formatDate(endDate)}`: 'DD/MM/YYYY-DD/MM/YYYY';
+  const selectedDates = startDate && endDate ? `${formatDate(startDate)} - ${formatDate(endDate)}`: 'MM/DD/YYYY-MM/DD/YYYY';
 
   useImperativeHandle(ref, () => ({
     clearDates() {
@@ -57,6 +57,7 @@ const DateRangePicker = forwardRef<any, DateRangePickerProps>(({ onStartDateChan
   return (
     <div ref={datepickerRef}>
       <input
+      style={{height:"40px", width:"250px", textAlign: 'center'}}
         type="text"
         onFocus={toggleDatePicker}
         ref={inputRef}
