@@ -1,25 +1,21 @@
 import React, { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
+import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import './FullScreen.css'
-import DatePicker from "react-datepicker"
-interface DateRangePickerProps {
-  onStartDateChange: (date: Date | null) => void;
-  onEndDateChange: (date: Date | null) => void;
+import './FullScreen.css';
+
+interface DatePickerProps {
+  onDateChange: (date: Date | null) => void;
 }
 
-const DateRangePicker = forwardRef<any, DateRangePickerProps>(({ onStartDateChange, onEndDateChange }, ref) => {
-  const [startDate, setStartDate] = useState<Date | null>(null);
-  const [endDate, setEndDate] = useState<Date | null>(null);
+const SingleDatePicker = forwardRef<any, DatePickerProps>(({ onDateChange }, ref) => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [open, setOpen] = useState<boolean>(false);
   const datepickerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleDateChange = (dates: [Date | null, Date | null]) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-    onStartDateChange(start);
-    onEndDateChange(end);
+  const handleDateChange = (date: Date | null) => {
+    setSelectedDate(date);
+    onDateChange(date);
   };
 
   const toggleDatePicker = () => {
@@ -40,29 +36,27 @@ const DateRangePicker = forwardRef<any, DateRangePickerProps>(({ onStartDateChan
   }, []);
 
   const formatDate = (date: Date | null): string => {
-    return date ? date.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }) : '';
+    return date ? date.toLocaleDateString('en-GB') : '';
   };
 
-  const selectedDates = startDate && endDate ? `${formatDate(startDate)} - ${formatDate(endDate)}`: 'MM/DD/YYYY-MM/DD/YYYY';
+  const selectedDateString = formatDate(selectedDate);
 
   useImperativeHandle(ref, () => ({
-    clearDates() {
-      setStartDate(null);
-      setEndDate(null);
-      onStartDateChange(null);
-      onEndDateChange(null);
+    clearDate() {
+      setSelectedDate(null);
+      onDateChange(null);
     }
   }));
 
   return (
     <div ref={datepickerRef}>
       <input
-        className='inputSt'
+        style={{ height: "40px", width: "250px", textAlign: 'center' }}
         type="text"
         onFocus={toggleDatePicker}
         ref={inputRef}
-        value={selectedDates || ''}
-        placeholder="Select Date Range"
+        value={selectedDateString || ''}
+        placeholder="Select Date"
         readOnly
         onMouseDown={(e) => {
           e.preventDefault();
@@ -73,13 +67,10 @@ const DateRangePicker = forwardRef<any, DateRangePickerProps>(({ onStartDateChan
       {open && (
         <div>
           <DatePicker
-            selected={startDate}
+            selected={selectedDate}
             onChange={handleDateChange}
-            startDate={startDate}
-            endDate={endDate}
-            selectsRange
             inline
-            placeholderText="Select Date Range"
+            placeholderText="Select Date"
             dateFormat="MM/dd/yyyy"
             showPopperArrow={false}
           />
@@ -89,4 +80,4 @@ const DateRangePicker = forwardRef<any, DateRangePickerProps>(({ onStartDateChan
   );
 });
 
-export default DateRangePicker;
+export default SingleDatePicker;
