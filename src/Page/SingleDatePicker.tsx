@@ -36,7 +36,7 @@ const SingleDatePicker = forwardRef<any, DatePickerProps>(({ onDateChange }, ref
   }, []);
 
   const formatDate = (date: Date | null): string => {
-    return date ? date.toLocaleDateString('en-GB') : '';
+    return date ? date.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }) : '';
   };
 
   const selectedDateString = formatDate(selectedDate);
