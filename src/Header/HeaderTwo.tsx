@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Dropdowns from "./Dropdowns";
+import Dropdown from "./Dropdown";
 import './Header.css'; // Import your CSS file for styling
 import logo from '../image/three.png'
 interface HeaderProps {
@@ -35,8 +35,8 @@ const HeaderTwo: React.FC<HeaderProps> = ({ logoSrc }) => {
                 <div className="logo">
                     <img src={logo} alt="Logo" style={{ width: "40px", height: "40px" }} />
                 </div>
-                <div style={{ marginLeft: "20px" }} className="dropdown">
-                    <Dropdowns
+                <div style={{ marginLeft: "20px" }}>
+                    <Dropdown
                         items={firstData}
                         onSelect={handleSelectItem1}
                         buttonText={selectedItem1}
@@ -45,7 +45,7 @@ const HeaderTwo: React.FC<HeaderProps> = ({ logoSrc }) => {
                 </div>
             </div>
             <div>
-                <Dropdowns
+                <Dropdown
                     items={[
                         { id: 1, label: 'Option A' },
                         { id: 2, label: 'Option B' },
@@ -56,7 +56,7 @@ const HeaderTwo: React.FC<HeaderProps> = ({ logoSrc }) => {
                 
                 />
                 {/* <h1>Selected Item 3: {selectedItem3}</h1> */}
-                <Dropdowns
+                <Dropdown
                     items={[
                         { id: 1, label: 'Choice 1' },
                         { id: 2, label: 'Choice 2' },

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './Header.css'; // Import your CSS file for styling
+import './Dropdown.css'; // Import your CSS file for styling
 import dropdownIcon from '../image/dropdown.png'; // Import your dropdown icon
 import dropupIcon from '../image/dropup.png'; // Import your dropup icon
 interface DropdownProps {
