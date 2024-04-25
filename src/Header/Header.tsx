@@ -7,6 +7,19 @@ interface HeaderProps {
   logoSrc: string;
 }
 
+const profileDrop=[
+  { id: 1, label: 'Profile 1' },
+  { id: 2, label: 'Profile 2' },
+  { id: 3, label: 'Profile 3' },
+  { id: 4, label: 'Profile 4' },
+]
+
+const notificationDrop=[
+  { id: 1, label: 'Notify 1' },
+  { id: 2, label: 'Notify 2' },
+  { id: 3, label: 'Notify 3' },
+  { id: 4, label: 'Notify 4' },
+]
 const Header: React.FC<HeaderProps> = ({ logoSrc }) => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [isNotificationDropdownOpen, setIsNotificationDropdownOpen] = useState(false);
@@ -79,6 +92,13 @@ const otherFunction =(itemname : string)=>{
   setOtherText(itemname);
   toggleDropdown('profile')
 }
+
+const notyFunction =(itemname : string)=>{
+  toggleDropdown('notification')
+}
+const profiFunction =(itemname : string)=>{
+  toggleDropdown('profileSetting')
+}
   return (
     <header className="header">
       <div style={{ display: 'flex', flexDirection: 'row' }}>
@@ -96,11 +116,18 @@ const otherFunction =(itemname : string)=>{
           </button>
           {isProfileDropdownOpen && (
             <div className="dropdown-content">
-            {OtherItems.map((item) => (
+            {/* {OtherItems.map((item) => (
               <div>
             <button style ={{width:'100%'}}onClick={()=>{otherFunction(item.label) }}>{item.label}</button>
               </div>
-            ))}
+            ))} */}
+            {OtherItems.map((item) => (
+           <div className="dropdown-item" key={item.id}>
+             <button style={{ width: '100%', backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}
+             onClick={()=>{otherFunction(item.label) }}
+             >{item.label}</button>
+           </div>
+         ))}
           </div>
           )}
         </div>
@@ -117,11 +144,14 @@ const otherFunction =(itemname : string)=>{
           </button>
           {isNotificationDropdownOpen && (
             <div className="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-              <a href="#">Link 4</a>
-            </div>
+            {notificationDrop.map((item) => (
+              <div className="dropdown-item" key={item.id}>
+                <button style={{ width: '100%', backgroundColor: 'transparent', border: 'none', cursor: 'pointer'  }}
+                  onClick={()=>{notyFunction(item.label) }}
+                >{item.label}</button>
+              </div>
+            ))}
+          </div>
           )}
         </div>
         <div className="dropdown" ref={profileSettingRef}>
@@ -134,12 +164,15 @@ const otherFunction =(itemname : string)=>{
             )}
           </button>
           {isProfileSettingDropdownOpen && (
-            <div className="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-              <a href="#">Link 4</a>
-            </div>
+         <div className="dropdown-content">
+         {profileDrop.map((item) => (
+           <div className="dropdown-item" key={item.id}>
+             <button style={{ width: '100%', backgroundColor: 'transparent', border: 'none', cursor: 'pointer'  }}
+              onClick={()=>{profiFunction(item.label) }}
+             >{item.label}</button>
+           </div>
+         ))}
+       </div>
           )}
         </div>
       </div>

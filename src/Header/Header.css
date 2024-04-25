@@ -57,4 +57,13 @@
   .dropdown .dropdown-content {
     display: block;
   }
+  .dropdown-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
   
+  .dropdown-item:hover {
+    background-color: #f1f1f1;
+    border: 1px solid #d00000;
+  }
