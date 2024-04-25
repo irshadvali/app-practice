@@ -3,6 +3,7 @@ import DateRangePicker from './DateRangePicker';
 import SingleDatePicker from './SingleDatePicker';
 import Header from '../Header/Header';
 import logo from '../image/three.png'
+import HeaderTwo from '../Header/HeaderTwo';
 const Demo: React.FC = () => {
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
@@ -43,7 +44,8 @@ const Demo: React.FC = () => {
       };
   return (
     <div>
-       <Header logoSrc={logo} />
+       {/* <Header logoSrc={logo} /> */}
+       <HeaderTwo></HeaderTwo>
       <h1>Select Date Range</h1>
         <DateRangePicker
         onStartDateChange={handleStartDateChange}

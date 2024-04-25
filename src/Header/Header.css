@@ -1,10 +1,11 @@
 /* Header Styles */
 .header {
-    background-color: #f0f0f0;
+    background-color: rgb(250,248,242);
     color: white;
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    box-shadow: rgba(25, 25, 26, 0.16)0 1px 4px 0px; /* Add bottom shadow */
   }
   
   /* Logo Styles */
@@ -22,7 +23,7 @@
   }
   
   .dropbtn {
-    background-color: #f0f0f0;
+    background-color: rgb(250,248,242);
     color: #d00000;
     padding: 10px;
     font-size: 16px;
@@ -30,17 +31,17 @@
     cursor: pointer;
     align-items: center;
     justify-items: center;
-    background-color: aquamarine;
     text-align: end;
   }
   
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #ccc;
+    background-color: #ffffff;
     min-width: 160px;
     z-index: 1;
     right: 0;
+    border: 1px solid #000000;
   }
   
   .dropdown-content a {

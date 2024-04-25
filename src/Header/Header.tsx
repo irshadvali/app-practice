@@ -116,11 +116,7 @@ const profiFunction =(itemname : string)=>{
           </button>
           {isProfileDropdownOpen && (
             <div className="dropdown-content">
-            {/* {OtherItems.map((item) => (
-              <div>
-            <button style ={{width:'100%'}}onClick={()=>{otherFunction(item.label) }}>{item.label}</button>
-              </div>
-            ))} */}
+        
             {OtherItems.map((item) => (
            <div className="dropdown-item" key={item.id}>
              <button style={{ width: '100%', backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}
