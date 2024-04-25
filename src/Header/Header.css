@@ -40,6 +40,7 @@
     background-color: #ccc;
     min-width: 160px;
     z-index: 1;
+    right: 0;
   }
   
   .dropdown-content a {
@@ -53,7 +54,7 @@
     background-color: #d00000;
   }
   
-  .dropdown:hover .dropdown-content {
+  .dropdown .dropdown-content {
     display: block;
   }
   

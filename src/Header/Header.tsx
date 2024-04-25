@@ -14,7 +14,13 @@ const Header: React.FC<HeaderProps> = ({ logoSrc }) => {
   const profileRef = useRef<HTMLDivElement>(null);
   const notificationRef = useRef<HTMLDivElement>(null);
   const profileSettingRef = useRef<HTMLDivElement>(null);
-
+  const [OtherItems, setOtherItems] = useState([
+    { id: 1, label: 'O Link 1', href: '#' },
+    { id: 2, label: 'O Link 2', href: '#' },
+    { id: 3, label: 'O Link 3', href: '#' },
+    { id: 4, label: 'O Link 4', href: '#' },
+  ]);
+  const [otherText, setOtherText]=useState(OtherItems[0].label)
   const toggleDropdown = (dropdown: string) => {
     switch (dropdown) {
       case 'profile':
@@ -69,29 +75,33 @@ const Header: React.FC<HeaderProps> = ({ logoSrc }) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
+const otherFunction =(itemname : string)=>{
+  setOtherText(itemname);
+  toggleDropdown('profile')
+}
   return (
     <header className="header">
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         <div className="logo">
           <img src={logoSrc} alt="Logo" style={{ width: "40px", height: "40px" }} />
         </div>
-        <div className="dropdown" ref={profileRef}>
+        <div style={{marginLeft:"20px"}} className="dropdown" ref={profileRef}>
           <button className="dropbtn" onClick={() => toggleDropdown('profile')}>
-            Other
+            {otherText}
             {isProfileDropdownOpen ? (
-              <img src={dropupIcon} alt="Dropup Icon" style={{ width: '20px', height: "20px" }} />
+              <img src={dropupIcon} alt="Dropup Icon" style={{ width: '15px', height: "15px" , verticalAlign: "top"}} />
             ) : (
-              <img src={dropdownIcon} alt="Dropdown Icon" style={{ width: '20px', height: "20px" }} />
+              <img src={dropdownIcon} alt="Dropdown Icon" style={{ width: '15px', height: "15px" , verticalAlign: "top"}} />
             )}
           </button>
           {isProfileDropdownOpen && (
             <div className="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-              <a href="#">Link 4</a>
-            </div>
+            {OtherItems.map((item) => (
+              <div>
+            <button style ={{width:'100%'}}onClick={()=>{otherFunction(item.label) }}>{item.label}</button>
+              </div>
+            ))}
+          </div>
           )}
         </div>
       </div>
