@@ -55,3 +55,11 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
+
+// when style add added 
+ create a jest.config.js file in your project root and add:
+module.exports = {
+  moduleNameMapper: {
+    '\\.(css|less)$': '<rootDir>/test/jest/__mocks__/styleMock.js',
+  }
+};
