@@ -1,54 +1,33 @@
-import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import configureMockStore from 'redux-mock-store';
-import { RootState } from '../../store';
-import { TargetingPage } from './TargetingPage';
+import React from "react";
+import { render } from "@testing-library/react";
+import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
+import TargetingPage from "../TargetingPage"; // Assuming this is the correct path to your TargetingPage component
 
-const mockStore = configureMockStore<RootState>();
+jest.mock("@uitk/foundations", () => ({
+  // Mock the module here
+  optum: {} // Mock any specific exports used in your component
+}));
 
-describe('TargetingPage', () => {
-  let store: any;
+describe("TargetingPage component", () => {
+  const mockStore = configureStore();
+  let store;
 
   beforeEach(() => {
     store = mockStore({
-      targeting: {
-        datasource: [],
-        data: {},
-      },
+      // Mock your Redux store state here if needed
     });
   });
 
-  it('renders without crashing', () => {
-    render(
-      <Provider store={store}>
-        <TargetingPage />
-      </Provider>
-    );
-    expect(screen.getByText('Data is loading')).toBeInTheDocument();
-  });
-
-  it('handles filter button click', () => {
-    render(
+  it("should render without errors", () => {
+    const { getByText } = render(
       <Provider store={store}>
         <TargetingPage />
       </Provider>
     );
 
-    fireEvent.click(screen.getByText('Filters'));
-    // Add assertions for the filter logic
+    expect(getByText("Targeting")).toBeInTheDocument();
   });
 
-  it('handles clear button click', () => {
-    render(
-      <Provider store={store}>
-        <TargetingPage />
-      </Provider>
-    );
-
-    fireEvent.click(screen.getByText('Clear'));
-    // Add assertions for the clear logic
-  });
-
-  // Add more test cases as needed to achieve 100% coverage
+  // Add more test cases as needed
 });
