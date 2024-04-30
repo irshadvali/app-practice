@@ -45,3 +45,13 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 # app-practice
+
+
+//npm install --save-dev enzyme enzyme-adapter-react-16 @types/enzyme
+//npm install --save-dev @types/redux-mock-store
+
+// setupTests.ts
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
