@@ -63,3 +63,23 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/test/jest/__mocks__/styleMock.js',
   }
 };
+
+
+
+
+//-----------------------//
+o import CSS files in Jest tests, you can use the identity-obj-proxy package to mock CSS module imports. This allows Jest to handle CSS imports without throwing an "unexpected token" error. Here's how you can set it up:
+
+Install identity-obj-proxy as a development dependency:
+
+npm install --save-dev identity-obj-proxy
+
+
+Update your Jest configuration (jest.config.js or package.json):
+
+// package.json
+"jest": {
+  "moduleNameMapper": {
+    "\\.(css|less|sass|scss)$": "identity-obj-proxy"
+  }
+}
