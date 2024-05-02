@@ -2,11 +2,12 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { forwardRef } from 'react';
 
+// Mocking the react-datepicker module
 jest.mock('react-datepicker', () => {
   const MockDatePicker = forwardRef(({ selected, onChange }: { selected: Date | null; onChange: (date: Date | null) => void }, ref) => {
     return (
       <div data-testid="datepicker">
-        <input type="text" value={selected?.toLocaleDateString()} onChange={() => {}} />
+        <input type="text" value={selected?.toLocaleDateString()} onChange={() => {}} placeholder="Select Date Range" />
         <button onClick={() => onChange(null)}>Clear</button>
       </div>
     );
@@ -17,7 +18,13 @@ jest.mock('react-datepicker', () => {
 describe('DateRangePicker', () => {
   it('renders the component', () => {
     render(<DateRangePicker onStartDateChange={() => {}} onEndDateChange={() => {}} />);
+    // Debugging information
     const inputElement = screen.getByPlaceholderText('Select Date Range');
+    if (!inputElement) {
+      const allInputs = screen.getAllByRole('textbox');
+      console.log('All input elements:', allInputs);
+    }
+    // Assertion
     expect(inputElement).toBeInTheDocument();
   });
 
