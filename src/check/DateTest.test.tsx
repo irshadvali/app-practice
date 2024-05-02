@@ -53,3 +53,24 @@ describe('DateRangePicker', () => {
     expect(handleEndDateChange).toHaveBeenCalledWith(null);
   });
 });
+
+
+it('clears selected dates when clearDates is called 2', () => {
+    const handleStartDateChange = jest.fn();
+    const handleEndDateChange = jest.fn();
+    const { rerender } = render(
+      <DateRangePicker onStartDateChange={handleStartDateChange} onEndDateChange={handleEndDateChange} />
+    );
+  
+    fireEvent.focus(screen.getByPlaceholderText('Select Date Range'));
+    fireEvent.click(screen.getByText('Clear'));
+    rerender(
+      <DateRangePicker onStartDateChange={handleStartDateChange} onEndDateChange={handleEndDateChange} />
+    );
+  
+    console.log('Handle start date change calls:', handleStartDateChange.mock.calls);
+    console.log('Handle end date change calls:', handleEndDateChange.mock.calls);
+  
+    expect(handleStartDateChange).toHaveBeenCalledWith(null);
+    expect(handleEndDateChange).toHaveBeenCalledWith(null);
+  });
