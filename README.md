@@ -100,3 +100,14 @@ module.exports = {
     "/node_modules/(?!(\\@apk/foundations)/)"
   ]
 };
+###############
+npm install --save-dev esbuild-jest
+
+
+module.exports = {
+  transform: {
+    "^.+\\.jsx?$": "esbuild-jest",
+    "^.+\\.tsx?$": "esbuild-jest",
+    "^.+\\.mjs$": "esbuild-jest",
+  },
+};
