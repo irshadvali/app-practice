@@ -123,3 +123,19 @@ module.exports = {
     "^.+\\.tsx?$": "babel-jest",
   },
 };
+
+
+
+====================
+\n
+
+"transform": {
+  "^.+\\.jsx?$": "esbuild-jest",
+  "^.+\\.tsx?$": "esbuild-jest",
+  "^.+\\.mjs$": "esbuild-jest"
+}
+
+=======\n
+"scripts": {
+  "test": "node --experimental-vm-modules ./node_modules/.bin/jest"
+}
