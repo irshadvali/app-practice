@@ -83,3 +83,20 @@ Update your Jest configuration (jest.config.js or package.json):
     "\\.(css|less|sass|scss)$": "identity-obj-proxy"
   }
 }
+
+
+module.exports = {
+  // Other Jest configuration options...
+
+  // Specify moduleNameMapper to mock CSS modules using identity-obj-proxy
+  moduleNameMapper: {
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+  },
+};
+
+
+module.exports = {
+  transformIgnorePatterns: [
+    "/node_modules/(?!(\\@apk/foundations)/)"
+  ]
+};
