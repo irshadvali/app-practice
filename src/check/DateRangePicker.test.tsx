@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import DateRangePicker from './DateRangePicker';
+import DateRangePicker from '../component/';
 
 describe('DateRangePicker', () => {
   it('renders the component', () => {
