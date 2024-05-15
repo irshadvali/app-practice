@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import logo from '../image/three.png'
 import HeaderTwo from '../Header/HeaderTwo';
 import ReviewWindow from '../component/ReviewWindow';
+import SideNavigation from '../component/SideNavigation';
 const Demo: React.FC = () => {
   const [isReviewOpen, setIsReviewOpen] = useState<boolean>(false);
   const [buttonPosition, setButtonPosition] = useState<{ top: number, left: number }>({ top: 0, left: 0 });
@@ -64,6 +65,9 @@ const Demo: React.FC = () => {
             setButtonPosition({ top: buttonRect.top, left: buttonRect.left });
         }
     }, []);
+    const openUrl = () => {
+      window.open('data:text/csv;charset=utf-8,ID,NAME,COUNTRY 0, FITZ-GERALD,ireland', '_blank');
+    };
   return (
     <div>
        {/* <Header logoSrc={logo} /> */}
@@ -80,11 +84,12 @@ const Demo: React.FC = () => {
       <p>End Date: {endDate ? endDate.toLocaleDateString('en-GB') : 'Not selected'}</p>
       <button onClick={handleClearDates}>Clear Dates</button>
       <SingleDatePicker onDateChange={handleSingleDate}></SingleDatePicker>
-
+      <button onClick={openUrl}>Open URL</button>
       <div style={{marginTop:"200px", marginLeft: '200px'}}>
             <button ref={buttonRef} onClick={handleButtonClick}>Open Review Window</button>
             {isReviewOpen && <ReviewWindow onClose={() => setIsReviewOpen(false)} buttonPosition={buttonPosition} />}
         </div>
+        <SideNavigation></SideNavigation>
     </div>
   );
 };
