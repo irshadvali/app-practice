@@ -16,6 +16,7 @@ const DateRangePicker = forwardRef<any, DateRangePickerProps>(({ onStartDateChan
 
   const handleDateChange = (dates: [Date | null, Date | null]) => {
     const [start, end] = dates;
+    console.log('===============',start);
     setStartDate(start);
     setEndDate(end);
     onStartDateChange(start);
