@@ -137,7 +137,9 @@ Snyk helps detect and fix security vulnerabilities in dependencies.
 
 Steps:
     Install the *Snyk GitHub App* in your repository.
+
     Add the Snyk GitHub Action to your workflow.
+
     Example Snyk Workflow:
 ```
 name: Snyk
@@ -161,3 +163,6 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 ```
+
+
+These workflows will automatically scan your React project for issues during #push# or #pull_request# events, ensuring consistent code quality and security.
