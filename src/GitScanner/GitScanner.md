@@ -1,15 +1,17 @@
+To integrate a code scanner in GitHub for your React project, you can use GitHub's native *CodeQL* or third-party tools like *ESLint*, *SonarCloud*, or Snyk. Here's how to set it up:
+
 # 1. Using GitHub CodeQL
 GitHub CodeQL is a static analysis tool for identifying vulnerabilities and bugs in your code.
 
 Steps:
-Enable Code Scanning in GitHub Repository:
+## 1.Enable Code Scanning in GitHub Repository:
 
 Go to your repository.
 Navigate to Security > Code scanning alerts > Set up code scanning.
 Select Set up this workflow for CodeQL Analysis.
-Customize CodeQL Workflow:
+## 2.Customize CodeQL Workflow:
 
-Add a codeql-analysis.yml file to .github/workflows folder.
+Add a *codeql-analysis.yml* file to *.github/workflows* folder.
 
 Example workflow:
 ```
