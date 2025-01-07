@@ -139,8 +139,7 @@ Steps:
     Install the *Snyk GitHub App* in your repository.
     Add the Snyk GitHub Action to your workflow.
     Example Snyk Workflow:
-
-    ```
+```
 name: Snyk
 
 on:
@@ -161,5 +160,4 @@ jobs:
         uses: snyk/actions/node@v2
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-
-    ```
+```
