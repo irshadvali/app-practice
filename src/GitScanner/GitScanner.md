@@ -1,4 +1,4 @@
-##1. Using GitHub CodeQL
+# 1. Using GitHub CodeQL
 GitHub CodeQL is a static analysis tool for identifying vulnerabilities and bugs in your code.
 
 Steps:
