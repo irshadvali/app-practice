@@ -82,3 +82,84 @@ jobs:
 
    4-Commit and push the workflow to the repository.
 
+# 3. Using SonarCloud
+
+
+   SonarCloud provides deep analysis for code quality and security vulnerabilities.
+
+    Steps:
+        Set up SonarCloud for your repository.
+        Add the SonarCloud GitHub Action to your *.github/workflows* folder.
+        Example SonarCloud Workflow:
+
+```
+name: SonarCloud
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: npm install
+      - name: Run SonarCloud
+        uses: sonarsource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+```
+
+# 4. Using Snyk for Vulnerability Scanning
+
+
+Snyk helps detect and fix security vulnerabilities in dependencies.
+
+Steps:
+    Install the *Snyk GitHub App* in your repository.
+    Add the Snyk GitHub Action to your workflow.
+    Example Snyk Workflow:
+
+    ```
+name: Snyk
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  snyk:
+    name: Snyk Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@v2
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+    ```
