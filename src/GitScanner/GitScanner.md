@@ -57,7 +57,8 @@ Steps:
 
     Add a *.github/workflows/eslint.yml* file:
 
-    ```name: ESLint
+    
+```name: ESLint
 
 on: [push, pull_request]
 
