@@ -1,7 +1,9 @@
 1. Install sonar-scanner
 Run the following command to install the sonar-scanner package as a development dependency:
 
-```npm install sonar-scanner --save-dev
+```
+npm install sonar-scanner --save-dev
+
 ```
 
 2. Create a sonar-project.properties File
