@@ -139,3 +139,16 @@ module.exports = {
 "scripts": {
   "test": "node --experimental-vm-modules ./node_modules/.bin/jest"
 }
+
+
+
+
+
+
+
+
+
+
+
+=========
+npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true
