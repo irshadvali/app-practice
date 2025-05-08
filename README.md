@@ -152,3 +152,11 @@ module.exports = {
 
 =========
 npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true
+
+
+======
+
+cd /Users/irshadvali/Documents/postgre/express-postgres-pg/
+zip -r cypress-artifacts.zip cypress/screenshots cypress/videos
+
+
