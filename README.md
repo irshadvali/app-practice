@@ -160,3 +160,4 @@ cd /Users/irshadvali/Documents/postgre/express-postgres-pg/
 zip -r cypress-artifacts.zip cypress/screenshots cypress/videos
 
 
+npm install xlsx file-saver
